@@ -1,6 +1,6 @@
 # insta
 
-Boilerplate for an express application.
+Boilerplate for express applications.
 
 Use [pro](https://www.npmjs.com/package/pro-cli) to quickly use this for your project:
 
