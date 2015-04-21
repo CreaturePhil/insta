@@ -8,7 +8,7 @@ var express = require('express');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
 var path = require('path');
-var stylus = require('stylus');
+var sass = require('node-sass-middleware');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
@@ -35,14 +35,19 @@ if (app.get('env') === 'development') {
   app.use(logger('dev'));
 
   // enable sass debugging
-  app.set('sassDebug', true);
+  app.set('sass debug', true);
 }
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(__dirname + '/public/favicon.ico'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(stylus.middleware(path.join(__dirname, 'public')));
+app.use(sass({
+  src: path.join(__dirname, 'sass'),
+  dest: path.join(__dirname, 'public/css'),
+  debug: true,
+  prefix: '/css'
+}));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);

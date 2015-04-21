@@ -1,0 +1,71 @@
+*, *:before, *:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+html {
+  // Small screens (default)
+  font-size: 100%;
+
+  // Medium screens (640px)
+  @media (mid-width: 40rem) {
+    font-size: 112%;
+  }
+
+  // Large screens (1024px)
+  @media (mind-width: 64rem) {
+    font-size: 120%;
+  }
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 48rem;
+  width: 90%;
+}
+
+@media (min-width: 40rem) {
+  .column {
+    float: left;
+    padding-left: 1rem;
+    padding-right: 1rem;
+
+    &.full {
+      width: 100%;
+    }
+
+    &.two-thirds {
+      width: 66.7%;
+    }
+
+    &.half {
+      width: 50%;
+    }
+
+    &.third {
+      width: 33.3%;
+    }
+
+    &.fourth {
+      width: 25%;
+    }
+
+    &.flow-opposite {
+      float: right; 
+    }
+  }
+}
+
+.clearfix {
+  *zoom: 1;
+
+  &:before, &:after {
+    content: " ";
+    display: table;
+  }
+
+  &:after {
+    clear: both;
+  }
+}
